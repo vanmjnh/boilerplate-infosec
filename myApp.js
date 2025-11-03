@@ -43,9 +43,9 @@ const helmet = require('helmet');
 
 
 
-
-
-
+app.get('/_api/package.json', (req, res) => {
+  res.type('json').send(require('./package.json'));
+});
 
 module.exports = app;
 // const api = require('./server.js');

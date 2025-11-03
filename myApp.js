@@ -43,15 +43,13 @@ const helmet = require('helmet');
 
 
 
-app.get('/_api/package.json', (req, res) => {
-  res.type('json').send(require('./package.json'));
-});
+
 
 module.exports = app;
-// const api = require('./server.js');
+const api = require('./server.js');
 app.use(express.static('public'));
 app.disable('strict-transport-security');
-// app.use('/_api', api);
+app.use('/_api', api);
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
